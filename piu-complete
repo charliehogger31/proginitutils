@@ -1,16 +1,18 @@
 #!/bin/bash
 set -e
 
-if [ -z "$1"]
+if [ -z "$1" ]
 	then
 	echo "No argument supplied"
 	exit
 fi
 
-./piu-gendir
-./piu-copy $1
+basep=$(dirname "$0")
+
+$basep/piu-gendir
+$basep/piu-copy $1
 echo "Requires password for piu-pack"
-sudo ./piu-pack
-./piu-qemu
-./piu-clean
+sudo $basep/piu-pack
+$basep/piu-qemu
+$basep/piu-clean
 

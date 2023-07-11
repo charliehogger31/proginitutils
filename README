@@ -1,0 +1,12 @@
+Tools for testing and running init executables.
+piu-pack must be run as superuser
+and piu-copy takes in an argument (the init executable)
+
+Order:
+./piu-gendir
+./piu-copy (init file)
+./piu-pack
+./piu-qemu
+./piu-clean
+
+THIS IS UNTESTED ON 99% OF SYSTEMS AND USES DANGEROUS COMMANDS (mkfs, losetup, etc...) USE AT YOUR OWN RISK.

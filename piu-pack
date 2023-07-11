@@ -1,0 +1,23 @@
+#!/bin/bash
+set -e
+
+if [ "$EUID" -ne 0 ]
+	then echo "Please run as root"
+	exit
+fi
+
+# 5G because fifth generation cellular
+qemu-img create piu-packed.img 5G
+losetup /dev/loop0 ./piu-packed.img
+mkfs.ext4 /dev/loop0
+mkdir ./ppacker
+mount /dev/loop0 ./ppacker
+cp -r ./piuroot/* ./ppacker/
+umount ./ppacker
+rmdir ppacker
+losetup -d /dev/loop0
+
+chown "${SUDO_USER}:${SUDO_USER}" ./piu-packed.img
+
+echo "piu-qemu now"
+

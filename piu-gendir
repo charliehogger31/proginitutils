@@ -3,8 +3,10 @@ set -e
 
 mkdir piuroot; cd piuroot
 
-wget https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86_64/alpine-minirootfs-3.18.2-x86_64.tar.gz -O root.tar.gz
+wget https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64-root.tar.xz -O root.tar.gz
+set +e
 tar xpvf root.tar.gz --xattrs-include='*.*' --numeric-owner
+set -e
 
 cd ..
 

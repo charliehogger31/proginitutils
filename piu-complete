@@ -1,0 +1,16 @@
+#!/bin/bash
+set -e
+
+if [ -z "$1"]
+	then
+	echo "No argument supplied"
+	exit
+fi
+
+./piu-gendir
+./piu-copy $1
+echo "Requires password for piu-pack"
+sudo ./piu-pack
+./piu-qemu
+./piu-clean
+

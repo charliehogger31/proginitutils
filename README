@@ -2,6 +2,10 @@ Tools for testing and running init executables.
 piu-pack must be run as superuser
 and piu-copy takes in an argument (the init executable)
 
+creates test user
+username: test
+password: password
+
 Order:
 ./piu-gendir
 ./piu-copy (init file)

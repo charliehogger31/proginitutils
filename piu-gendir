@@ -8,6 +8,11 @@ set +e
 tar xpvf root.tar.gz --xattrs-include='*.*' --numeric-owner
 set -e
 
+echo "test:x:1000:1000::/home/test:/bin/bash" >> ./etc/passwd
+echo "test:x:1000:" >> ./etc/group
+echo "test:$(openssl passwd -6 password):::::::" >> ./etc/shadow
+mkdir ./home/test
+
 cd ..
 
 echo "------------------------------------------------"

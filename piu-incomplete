@@ -1,0 +1,22 @@
+#!/bin/bash
+set -e
+
+if [ -z "$1" ]
+	then
+	echo "No argument supplied"
+	exit
+fi
+
+basep=$(dirname "$0")
+
+if [ ! -d "$basep/piuroot" ]; then
+	echo "Must run piu-gendir to have a directory ready"
+	exit
+fi
+
+$basep/piu-copy $1
+echo "Requires password for piu-pack"
+sudo $basep/piu-pack
+$basep/piu-qemu
+
+echo "Run piu-clean to clean things up if needed"

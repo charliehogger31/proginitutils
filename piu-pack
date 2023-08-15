@@ -6,6 +6,10 @@ if [ "$EUID" -ne 0 ]
 	exit
 fi
 
+if [ -f "./piu-packed.img" ]; then
+	rm ./piu-packed.img
+fi
+
 # 5G because fifth generation cellular
 qemu-img create piu-packed.img 5G
 losetup /dev/loop0 ./piu-packed.img

@@ -10,8 +10,7 @@ fi
 basep=$(dirname "$0")
 
 if [ ! -d "$basep/piuroot" ]; then
-	$basep/pit-gendir
-	exit
+	$basep/piu-gendir
 fi
 
 $basep/piu-copy $1

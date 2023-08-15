@@ -10,7 +10,7 @@ fi
 basep=$(dirname "$0")
 
 if [ ! -d "$basep/piuroot" ]; then
-	echo "Must run piu-gendir to have a directory ready"
+	$basep/pit-gendir
 	exit
 fi
 

@@ -10,7 +10,7 @@ if [ -f "./piu-packed.img" ]; then
 	rm ./piu-packed.img
 fi
 
-# 5G because fifth generation cellular
+# 5 gigs
 qemu-img create piu-packed.img 5G
 losetup /dev/loop0 ./piu-packed.img
 mkfs.ext4 /dev/loop0
